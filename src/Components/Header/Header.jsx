@@ -16,7 +16,7 @@ export default function Header() {
 
 
 
-        <header className={`w-100 d-flex justify-content-center align-items-center `}>
+        <header className={`w-100 d-flex justify-content-center align-items-center mt-5 pt-5`}>
             <div className="container">
                 <div className={`row ${style.content}`}>
                     <div className={`col-sm-12 col-md-6 col-lg-6 wow bounceInRight ${style.right}`}>

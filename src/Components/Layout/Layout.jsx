@@ -8,7 +8,9 @@ export default function Layout() {
 
     return <>
         <Nav />
-        <Outlet></Outlet>
+        <div className="my-4">
+            <Outlet></Outlet>
+        </div>        
         <Footer />
 
 

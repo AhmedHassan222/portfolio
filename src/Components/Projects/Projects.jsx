@@ -12,8 +12,13 @@ import { Helmet } from 'react-helmet'
 import educavo from '../../assets/educavo.png'
 import eMarket from "../../assets/eMarket.png"
 import ApAr from "../../assets/Annotation 2023-11-03 221617.png"
-export default function Project() {
+import { useEffect } from 'react'
 
+export default function Project() {
+    useEffect(() => {
+        window.scroll(0, 0)
+
+    }, [])
     function allProjects() {
         document.querySelector('#one').classList.remove('d-none')
         document.querySelector('#twelve').classList.remove('d-none')

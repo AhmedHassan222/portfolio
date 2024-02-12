@@ -1,6 +1,7 @@
 import style from "./Contact.module.css"
 import { Helmet } from "react-helmet";
-import {  useState } from "react";
+import {  useEffect, useState } from "react";
+
 import $ from 'jquery';
 export default function Contact() {
     const [character, setCharacter] = useState(500)
@@ -15,6 +16,10 @@ export default function Contact() {
         }
 
     }
+    useEffect(() => {
+        window.scroll(0, 0)
+
+    }, [])
     function review(e) {
         $('textarea').on("cut copy paste", function (e) {
             e.preventDefault();

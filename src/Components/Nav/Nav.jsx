@@ -6,10 +6,11 @@ import { useState } from "react"
 export default function Nav() {
     const [isOpen, setIsOpen] = useState(false)
     function toggleMenu() {
+
         if (isOpen == false) {
             
             setIsOpen(true)
-            document.querySelector('aside').setAttribute('class', 'Nav_aside__phuHu')
+            document.querySelector('aside').classList.replace('d-none' , 'd-block')
             document.querySelector('body').classList.remove('overflow-auto')
             document.querySelector('body').classList.add('overflow-hidden')
 
@@ -18,13 +19,13 @@ export default function Nav() {
             document.querySelector('body').classList.add('overflow-auto')
 
             setIsOpen(false)
-            document.querySelector('aside').removeAttribute('class')
+            document.querySelector('aside').classList.replace('d-block' , 'd-none')
 
         }
     }
 function goTo(){
     setIsOpen(false)
-    document.querySelector('aside').removeAttribute('class')
+    document.querySelector('aside').classList.replace('d-block' , 'd-none')
     document.querySelector('body').classList.remove('overflow-hidden')
     document.querySelector('body').classList.add('overflow-auto')
 }
@@ -38,7 +39,7 @@ function goTo(){
                     {isOpen ? <i className={`fa-solid fa-xmark fs-3 ${style.linkStyle}`}></i> : <i className={`fa-solid fa-bars fs-3 ${style.linkStyle}`}></i>}
                 </div>
             </div>
-            <aside >
+            <aside className="d-none">
                 <Link onClick={goTo} className={`nav-link p-4 ${style.linkStyle}`} to='' >HOME</Link>
                 <Link onClick={goTo} className={`nav-link p-4 ${style.linkStyle}`} to='about'>ABOUT</Link>
                 <Link onClick={goTo} className={`nav-link p-4 ${style.linkStyle}`} to='project'>PROJECTS</Link>

@@ -3,7 +3,12 @@
 import { Link } from "react-router-dom";
 import style from "./About.module.css"
 import { Helmet } from "react-helmet";
+import { useEffect } from "react";
 export default function About() {
+    useEffect(() => {
+        window.scroll(0, 0)
+
+    }, [])
     return <>
         <Helmet>
             <title>About Me - A.</title>
