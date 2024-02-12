@@ -1,0 +1,32 @@
+
+body {
+  margin: 0;
+  font-family: 'Martian Mono', monospace;
+  overflow-x: hidden;
+
+}
+.positionStyle 
+{
+  right: 0%;
+  top: 15%;
+  z-index: 77777777777777777777777777777777;
+}
+.positionStyle:hover
+{
+  cursor: pointer;
+}
+
+
+body::-webkit-scrollbar 
+{
+  background-color: transparent;
+}
+body::-webkit-scrollbar-thumb
+{
+  background-color: #dc3545;
+}
+
+
+body::-webkit-scrollbar {
+  width: 5px;
+}
