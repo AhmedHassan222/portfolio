@@ -12,9 +12,11 @@ import { Helmet } from 'react-helmet'
 import educavo from '../../assets/educavo.png'
 import eMarket from "../../assets/eMarket.png"
 import ApAr from "../../assets/Annotation 2023-11-03 221617.png"
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import sakan from "../../assets/sakan.png"
+import { Darkmode } from '../../Contexts/Darkmode'
 export default function Project() {
+    let { darkMode } = useContext(Darkmode)
     useEffect(() => {
         window.scroll(0, 0)
     }, [])
@@ -23,24 +25,24 @@ export default function Project() {
         <Helmet>
             <title>My Projects - A.</title>
         </Helmet>
-        <div className={`${style.projects}`}>
+        <div style={darkMode == false ? { backgroundColor: 'white', color: 'black' } : { backgroundColor: 'black', color: 'white' }} className={`${style.projects}`}>
             <div className="container  pt-5 text-center">
-                <div className="position-relative">
-                    <h3 className={`${style.bigTitle}`}>PROJECTS</h3>
+                <div className={`position-relative ${darkMode ?"py-4" :""}`}>
+                    {darkMode == false ? <h3 className={`${style.bigTitle}`}>PROJECTS</h3> : ""}
                     <p className={`position-absolute ${style.positonStyle} ${style.smallTitle}`}>PROJECTS</p>
                 </div>
-                <ul className="nav justify-content-center mt-5 ">
+                <ul  className="nav justify-content-center mt-5 ">
                     <li className="nav-item">
-                        <span onClick={() => { setMode('all') }}  className={`nav-link ${style.tabItem} ${mode == 'all' ? 'text-primary':""}`} >All Projects</span>
+                        <span style={darkMode == false ? { backgroundColor: 'white', color: 'black' } : { backgroundColor: 'black', color: 'white' }} onClick={() => { setMode('all') }} className={`nav-link ${style.tabItem} ${mode == 'all' ? 'text-primary' : ""}`} >All Projects</span>
                     </li>
                     <li className="nav-item">
-                        <span onClick={() => { setMode('react') }} className={`nav-link ${style.tabItem} ${mode == 'react' ? 'text-primary':""}`} >ReactJS</span>
+                        <span style={darkMode == false ? { backgroundColor: 'white', color: 'black' } : { backgroundColor: 'black', color: 'white' }} onClick={() => { setMode('react') }} className={`nav-link ${style.tabItem} ${mode == 'react' ? 'text-primary' : ""}`} >ReactJS</span>
                     </li>
                     <li className="nav-item">
-                        <span onClick={() => { setMode('angular') }} className={`nav-link ${style.tabItem} ${mode == 'angular' ? 'text-primary':""}`} >AngularJS</span>
+                        <span style={darkMode == false ? { backgroundColor: 'white', color: 'black' } : { backgroundColor: 'black', color: 'white' }} onClick={() => { setMode('angular') }} className={`nav-link ${style.tabItem} ${mode == 'angular' ? 'text-primary' : ""}`} >AngularJS</span>
                     </li>
                     <li className="nav-item">
-                        <span onClick={() => { setMode("vanilla") }} className={`nav-link ${style.tabItem} ${mode == 'vanilla' ? 'text-primary':""}`} >Vanilla JS</span>
+                        <span style={darkMode == false ? { backgroundColor: 'white', color: 'black' } : { backgroundColor: 'black', color: 'white' }} onClick={() => { setMode("vanilla") }} className={`nav-link ${style.tabItem} ${mode == 'vanilla' ? 'text-primary' : ""}`} >Vanilla JS</span>
                     </li>
                 </ul>
                 <div className="row py-5 g-4">
@@ -48,10 +50,10 @@ export default function Project() {
                         <div className="position-relative">
                             <img className={`w-100 ${style.imgStyle}`} src={sakan} alt="" />
                             <div className={` ${style.positionStyle} position-absolute d-flex justify-content-center align-items-center`}>
-                                <a target='_blank' href="https://github.com/AhmedHassan222/GraduationProject">
+                                <a target='_blank' href="https://github.com/AhmedHassan222/Sakan">
                                     <i class={`fa-solid fa-code fs-5 mx-1  ${style.bgStyle} rounded-circle p-3 text-white`}></i>
                                 </a>
-                                <a target='_blank' href="https://ahmedhassan222.github.io/GraduationProject/">
+                                <a target='_blank' href="https://ahmedhassan222.github.io/Sakan/">
                                     <i class={`fa-solid fa-display fs-5 mx-1  ${style.bgStyle} rounded-circle p-3 text-white`}></i>
                                 </a>
                             </div>

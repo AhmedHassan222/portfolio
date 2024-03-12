@@ -1,16 +1,18 @@
 
 import { Link } from "react-router-dom"
 import style from "./Nav.module.css"
-import { useState } from "react"
+import { useContext, useEffect, useState } from "react"
+import { Darkmode } from "../../Contexts/Darkmode"
 
 export default function Nav() {
     const [isOpen, setIsOpen] = useState(false)
+    let { darkMode, setDarkMode } = useContext(Darkmode)
     function toggleMenu() {
 
         if (isOpen == false) {
-            
+
             setIsOpen(true)
-            document.querySelector('aside').classList.replace('d-none' , 'd-block')
+            document.querySelector('aside').classList.replace('d-none', 'd-block')
             document.querySelector('body').classList.remove('overflow-auto')
             document.querySelector('body').classList.add('overflow-hidden')
 
@@ -19,34 +21,43 @@ export default function Nav() {
             document.querySelector('body').classList.add('overflow-auto')
 
             setIsOpen(false)
-            document.querySelector('aside').classList.replace('d-block' , 'd-none')
+            document.querySelector('aside').classList.replace('d-block', 'd-none')
 
         }
     }
-function goTo(){
-    setIsOpen(false)
-    document.querySelector('aside').classList.replace('d-block' , 'd-none')
-    document.querySelector('body').classList.remove('overflow-hidden')
-    document.querySelector('body').classList.add('overflow-auto')
-}
-    return <>
-        
+    function goTo() {
+        setIsOpen(false)
+        document.querySelector('aside').classList.replace('d-block', 'd-none')
+        document.querySelector('body').classList.remove('overflow-hidden')
+        document.querySelector('body').classList.add('overflow-auto')
+    }
 
-        <nav className="navbar navbar-expand-lg bg-white  py-1 fixed-top px-5">
+    return <>
+
+
+        <nav className={`navbar navbar-expand-lg  ${darkMode == true ? "bg-black text-white" :"bg-white text-black"}  py-1 fixed-top px-5`}>
             <div className="container">
-                <Link to={'/'} className="navbar-brand fs-1 h1">A.</Link>
+                <Link to={'/'} className={`navbar-brand fs-1 h1 ${darkMode == true ? "bg-black text-white" :"bg-white text-black"}`}>A.</Link>
                 <div onClick={toggleMenu}>
-                    {isOpen ? <i className={`fa-solid fa-xmark fs-3 ${style.linkStyle}`}></i> : <i className={`fa-solid fa-bars fs-3 ${style.linkStyle}`}></i>}
+                    {isOpen ? <i className={`fa-solid fa-xmark fs-2 ${style.linkStyle}`}></i> : <div className={`d-flex  align-items-center ${style.linkStyle}`}>
+                        <i className={`fa-solid fa-bars fs-3  `}></i>
+
+                        <p className="fs-3 pt-2 ps-1">menu</p>
+                    </div>}
                 </div>
             </div>
-            <aside className="d-none">
-                <Link onClick={goTo} className={`nav-link p-4 ${style.linkStyle}`} to='' >HOME</Link>
-                <Link onClick={goTo} className={`nav-link p-4 ${style.linkStyle}`} to='about'>ABOUT</Link>
-                <Link onClick={goTo} className={`nav-link p-4 ${style.linkStyle}`} to='project'>PROJECTS</Link>
-                <Link onClick={goTo} className={`nav-link p-4 ${style.linkStyle}`} to="contact">CONTACT</Link>
+            <div className={`${style.mode} fs-3  `}>
+                {darkMode ? <i onClick={()=>setDarkMode(false)} className="fa-solid bg-black fa-sun border-white border border-1 rounded-circle p-2"></i>:<i onClick={()=>setDarkMode(true)} className="fa-solid fa-moon border-black bg-white border border-1 rounded-circle p-2"></i>}
+            </div>
+
+            <aside className={`d-none ${darkMode == true ? "bg-black text-white" :"bg-white text-black"}`}>
+                <Link onClick={goTo} className={`nav-link p-4 ${style.linkStyle} ${darkMode == true ? "bg-black text-white" :"bg-white text-black"}`} to='' >HOME</Link>
+                <Link onClick={goTo} className={`nav-link p-4 ${style.linkStyle} ${darkMode == true ? "bg-black text-white" :"bg-white text-black"}`} to='about'>ABOUT</Link>
+                <Link onClick={goTo} className={`nav-link p-4 ${style.linkStyle} ${darkMode == true ? "bg-black text-white" :"bg-white text-black"}`} to='project'>PROJECTS</Link>
+                <Link onClick={goTo} className={`nav-link p-4 ${style.linkStyle} ${darkMode == true ? "bg-black text-white" :"bg-white text-black"}`} to="contact">CONTACT</Link>
             </aside>
         </nav>
 
 
-</>
+    </>
 }

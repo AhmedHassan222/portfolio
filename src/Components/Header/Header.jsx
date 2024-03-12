@@ -2,10 +2,12 @@ import Typed from 'react-typed';
 import style from "./Header.module.css"
 import profilePic from "../../assets/profilePic2.png"
 import WOW from 'wowjs';
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Darkmode } from '../../Contexts/Darkmode';
 
 export default function Header() {
+    let {darkMode} = useContext(Darkmode)
     useEffect(() => {
         new WOW.WOW({
             live: false
@@ -16,7 +18,7 @@ export default function Header() {
 
 
 
-        <header className={`w-100 d-flex justify-content-center align-items-center mt-5 pt-5`}>
+        <header style={darkMode== false ? {backgroundColor:'whitesmoke', color:'black'}:{backgroundColor:'black' , color:'white'}} className={`w-100 d-flex justify-content-center align-items-center mt-5 pt-5`}>
             <div className="container">
                 <div className={`row ${style.content}`}>
                     <div className={`col-sm-12 col-md-6 col-lg-6 wow bounceInRight ${style.right}`}>
@@ -55,11 +57,6 @@ export default function Header() {
                 </div>
             </div>
         </header>
-        <section>
-            <div className={`${style.air} ${style.air1} `}></div>
-            <div className={`${style.air} ${style.air2} `}></div>
-            <div className={`${style.air} ${style.air3} `}></div>
-            <div className={`${style.air} ${style.air4} `}></div>
-        </section>
+
     </>
 }

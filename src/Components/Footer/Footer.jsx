@@ -1,10 +1,12 @@
 import style from "./Footer.module.css"
+import { useContext } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { Darkmode } from "../../Contexts/Darkmode";
 export default function Footer() {
-    
+    let { darkMode } = useContext(Darkmode)
     return <>
-        <footer class={`pt-5 mt-5 ${style.footerStyle} fw-bold `} >
+        <footer style={darkMode == false ? { background: 'linear-gradient(whitesmoke, white)', color: 'black' } : { backgroundColor: 'black', color: 'white' }} class={`pt-5 ${style.footerStyle} fw-bold `} >
             <div className="container ">
                 <div className="row justify-content-center ">
                     <div className="col-sm-12 col-md-6 col-lg-4 py-4 text-center  ">
@@ -20,19 +22,19 @@ export default function Footer() {
                         <div>
                             <h3>A.</h3>
                             <div>
-                                <Link to={''} className={` ${style.linkStyle}`}>Home</Link>
+                                <Link to={''} className={` ${style.linkStyle} ${darkMode ?"text-white":"text-black"}`}>Home</Link>
 
                             </div>
                             <div>
-                            <Link to={'about'} className={` ${style.linkStyle}`}>AboutMe</Link>
+                                <Link to={'about'} className={` ${style.linkStyle} ${darkMode ?"text-white":"text-black"}`}>AboutMe</Link>
 
                             </div>
                             <div>
-                            <Link to={'project'} className={` ${style.linkStyle}`}>projects</Link>
+                                <Link to={'project'} className={` ${style.linkStyle} ${darkMode ?"text-white":"text-black"}`}>projects</Link>
 
                             </div>
                             <div>
-                            <Link to={'contact'} className={` ${style.linkStyle}`}>contact</Link>
+                                <Link to={'contact'} className={` ${style.linkStyle} ${darkMode ?"text-white":"text-black"}`}>contact</Link>
 
                             </div>
 
@@ -43,7 +45,7 @@ export default function Footer() {
                     <div className="col-sm-12 col-md-6 col-lg-4 py-4 text-center  ">
                         <div>
                             <h3 className="text-center">FOLLOW ME</h3>
-                            <div className="d-flex fs-3 mt-4 justify-content-center">
+                            <div className="d-flex fs-3 mt-4 justify-content-center bg-white w-25 mx-auto text-center">
                                 <a target="_blank" className={`${style.github}`} href="https://github.com/ahmedhassan222">
                                     <i class="fa-brands fa-github  me-3"></i>
                                 </a>
@@ -57,12 +59,12 @@ export default function Footer() {
 
                 </div>
             </div>
+            <div class="text-center  p-3  " >
 
+                <p >© 2024 Copyright</p>
+            </div>
         </footer>
-        <div class="text-center text-dark  bg-white p-3  " >
 
-            <p >© 2024 Copyright</p>
-        </div>
     </>
 }
 

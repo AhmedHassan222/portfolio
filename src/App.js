@@ -6,6 +6,7 @@ import Notfound from './Components/Notfound/Notfound';
 import About from './Components/About/About';
 import Project from './Components/Projects/Projects';
 import Contact from './Components/Contact/Contact';
+import DarkmodeProvide from './Contexts/Darkmode';
 
 function App() {
   const routers = createHashRouter([
@@ -21,7 +22,9 @@ function App() {
   ])
 
 
-  return <RouterProvider router={routers} />
+  return <DarkmodeProvide>
+    <RouterProvider router={routers} />
+  </DarkmodeProvide>
 }
 
 export default App;
