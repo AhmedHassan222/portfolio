@@ -22,16 +22,18 @@ aside {
     color: #dc3545 !important;
     cursor: pointer;
 }
-
+@media screen and (max-width:600px) {
+    .w10 {
+        width: 20%;
+    }
+}
 @media screen and (min-width:0px) and (max-width:991px) {
     .linkStyle {
         font-size: 140%;
         width: fit-content;
     }
 
-    .w10 {
-        width: 15%;
-    }
+    
 }
 
 @media screen and (min-width:992px) {
