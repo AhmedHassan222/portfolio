@@ -2,12 +2,16 @@
 import { Link } from "react-router-dom"
 import style from "./Notfound.module.css"
 import { Helmet } from "react-helmet"
+import { Darkmode } from "../../Contexts/Darkmode"
+import { useContext } from "react"
 export default function Notfound() {
+    let {darkMode} = useContext(Darkmode)
+
     return <>
         <Helmet>
             <title>404 - Page Not Found</title>
         </Helmet>
-        <div className="w-100 vh-100 d-flex align-items-center justify-content-center">
+        <div style={darkMode == false ? { backgroundColor: 'white', color: 'black' } : { backgroundColor: 'black', color: 'white' }} className="w-100 vh-100 d-flex align-items-center justify-content-center">
             <div className="wrapper  w-100 p-5">
                 <div className="landing-page">
                     <div style={{ textAlign: "center" }} className="icon__download">
