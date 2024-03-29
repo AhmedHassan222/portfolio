@@ -17,12 +17,16 @@ aside {
 .w10 {
     width: 10%;
 }
-
+.linkStyle 
+{
+    transition: all 0.3s;
+}
 .linkStyle:hover {
     color: #dc3545 !important;
     cursor: pointer;
+    transform: scaleX(1.1);
 }
-@media screen and (max-width:600px) {
+@media screen and (max-width:991px) {
     .w10 {
         width: 20%;
     }
