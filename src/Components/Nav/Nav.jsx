@@ -25,6 +25,7 @@ export default function Nav() {
 
         }
     }
+    
     function goTo() {
         setIsOpen(false)
         document.querySelector('aside').classList.replace('d-block', 'd-none')
@@ -35,29 +36,32 @@ export default function Nav() {
     return <>
 
 
-        <nav className={`navbar navbar-expand-lg  ${darkMode == true ? "bg-black text-white" : "bg-white text-black"}  py-1 fixed-top px-2`}>
-            <div className="container">
-                <Link to={'/'} className={`navbar-brand fs-1 h1 ${darkMode == true ? "bg-black text-white" : "bg-white text-black"}`}>A.</Link>
-                <div className={`d-flex  ${style.w10} align-items-center justify-content-around`}>
-                    <div className={` fs-5  `}>
-                        {darkMode ? <i onClick={() => setDarkMode(false)} className="fa-solid bg-black fa-sun border-white border border-1 rounded-circle p-2"></i> : <i onClick={() => setDarkMode(true)} className="fa-solid fa-moon border-black bg-white border border-1 rounded-circle p-2"></i>}
-                    </div>
+        <div className="fixed-top">
+            <nav className={`navbar navbar-expand-lg  ${darkMode == true ? "bg-black text-white" : "bg-white text-black"}  py-1  px-2`}>
+                <div className="container">
+                    <Link to={'/'} className={`navbar-brand fs-1 h1 ${darkMode == true ? "bg-black text-white" : "bg-white text-black"}`}>A.</Link>
+                    <div className={`d-flex  ${style.w10} align-items-center justify-content-around`}>
+                        <div className={` fs-5  `}>
+                            {darkMode ? <i onClick={() => setDarkMode(false)} className="fa-solid bg-black fa-sun border-white border border-1 rounded-circle p-2"></i> : <i onClick={() => setDarkMode(true)} className="fa-solid fa-moon border-black bg-white border border-1 rounded-circle p-2"></i>}
+                        </div>
 
-                    <div onClick={toggleMenu}>
-                        {isOpen ? <i className={`fa-solid fa-xmark fs-2 ${style.linkStyle}`}></i> : <div className={`d-flex  align-items-center ${style.linkStyle}`}>
-                            <i className={`fa-solid fa-bars fs-3  `}></i>
-                        </div>}
+                        <div onClick={toggleMenu}>
+                            {isOpen ? <i className={`fa-solid fa-xmark fs-2 ${style.linkStyle}`}></i> : <div className={`d-flex  align-items-center ${style.linkStyle}`}>
+                                <i className={`fa-solid fa-bars fs-3  `}></i>
+                            </div>}
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <aside className={`d-none ${darkMode == true ? "bg-black text-white" : "bg-white text-black"}`}>
-                <Link onClick={goTo} className={`nav-link p-4 ${style.linkStyle} ${darkMode == true ? "bg-black text-white" : "bg-white text-black"}`} to='' >HOME</Link>
-                <Link onClick={goTo} className={`nav-link p-4 ${style.linkStyle} ${darkMode == true ? "bg-black text-white" : "bg-white text-black"}`} to='about'>ABOUT</Link>
-                <Link onClick={goTo} className={`nav-link p-4 ${style.linkStyle} ${darkMode == true ? "bg-black text-white" : "bg-white text-black"}`} to='project'>PROJECTS</Link>
-                <Link onClick={goTo} className={`nav-link p-4 ${style.linkStyle} ${darkMode == true ? "bg-black text-white" : "bg-white text-black"}`} to="contact">CONTACT</Link>
-            </aside>
-        </nav>
+                <aside className={`d-none ${darkMode == true ? "bg-black text-white" : "bg-white text-black"}`}>
+                    <Link onClick={goTo} className={`nav-link p-4 ${style.linkStyle} ${darkMode == true ? "bg-black text-white" : "bg-white text-black"}`} to='' >HOME</Link>
+                    <Link onClick={goTo} className={`nav-link p-4 ${style.linkStyle} ${darkMode == true ? "bg-black text-white" : "bg-white text-black"}`} to='about'>ABOUT</Link>
+                    <Link onClick={goTo} className={`nav-link p-4 ${style.linkStyle} ${darkMode == true ? "bg-black text-white" : "bg-white text-black"}`} to='project'>PROJECTS</Link>
+                    <Link onClick={goTo} className={`nav-link p-4 ${style.linkStyle} ${darkMode == true ? "bg-black text-white" : "bg-white text-black"}`} to="contact">CONTACT</Link>
+                </aside>
+            </nav>
+            
+        </div>   
 
 
     </>
