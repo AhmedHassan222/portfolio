@@ -11,6 +11,7 @@ import eMarket from "../../assets/eMarket.png"
 import ApAr from "../../assets/Annotation 2023-11-03 221617.png"
 import { useContext, useEffect, useState } from 'react'
 import sakan from "../../assets/sakan.png"
+import OMN from "../../assets/OMN.png"
 import Architect from "../../assets/Landingpage.png"
 import { Darkmode } from '../../Contexts/Darkmode'
 export default function Project() {
@@ -45,6 +46,18 @@ export default function Project() {
                     
                 </ul>
                 <div className="row py-5 g-4">
+                    {mode == 'all' || mode == 'landingPage' ?
+                        <div className={`col-sm-12 col-md-4 col-lg-4 position-relative ${style.box} `} >
+                            <img className={`w-100 ${style.imgStyle}`} src={OMN} alt="" />
+                            <div className={` ${style.positionStyle} position-absolute d-flex justify-content-center align-items-center`}>
+                                <a target='_blank' href="https://github.com/AhmedHassan222/OMN">
+                                    <i class={`fa-solid fa-code fs-5 mx-1  ${style.bgStyle} rounded-circle p-3 text-white`}></i>
+                                </a>
+                                <a target='_blank' href="https://ahmedhassan222.github.io/OMN/">
+                                    <i class={`fa-solid fa-display fs-5 mx-1  ${style.bgStyle} rounded-circle p-3 text-white`}></i>
+                                </a>
+                            </div>
+                        </div> : ""}
                     {mode == 'all' || mode == 'landingPage' ?
                         <div className={`col-sm-12 col-md-4 col-lg-4 position-relative ${style.box} `} >
                             <img className={`w-100 ${style.imgStyle}`} src={Architect} alt="" />
