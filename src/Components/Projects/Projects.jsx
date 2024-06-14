@@ -54,10 +54,10 @@ export default function Project() {
                             <img className={`w-100 ${style.imgStyle}`} src={item.img} alt="" />
                             <div className={` ${style.positionStyle} position-absolute d-flex justify-content-center align-items-center`}>
                                 <Link target='_blank' to={item.link}>
-                                    <i class={`fa-solid fa-code fs-5 mx-1  ${style.bgStyle} rounded-circle p-3 text-white`}></i>
+                                    <i className={`fa-solid fa-code fs-5 mx-1  ${style.bgStyle} rounded-circle p-3 text-white`}></i>
                                 </Link>
                                 <Link target='_blank' to={item.demo}>
-                                    <i class={`fa-solid fa-display fs-5 mx-1  ${style.bgStyle} rounded-circle p-3 text-white`}></i>
+                                    <i className={`fa-solid fa-display fs-5 mx-1  ${style.bgStyle} rounded-circle p-3 text-white`}></i>
                                 </Link>
                             </div>
                         </div>

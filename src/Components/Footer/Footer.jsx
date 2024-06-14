@@ -6,7 +6,7 @@ import { Darkmode } from "../../Contexts/Darkmode";
 export default function Footer() {
     let { darkMode } = useContext(Darkmode)
     return <>
-        <footer style={darkMode == false ? { background: 'linear-gradient(whitesmoke, white)', color: 'black' } : { backgroundColor: 'black', color: 'white' }} class={`pt-5 ${style.footerStyle} fw-bold `} >
+        <footer style={darkMode == false ? { background: 'linear-gradient(whitesmoke, white)', color: 'black' } : { backgroundColor: 'black', color: 'white' }} className={`pt-5 ${style.footerStyle} fw-bold `} >
             <div className="container ">
                 <div className="row justify-content-center ">
                     <div className="col-sm-12 col-md-6 col-lg-4 py-4 text-center  ">
@@ -47,10 +47,10 @@ export default function Footer() {
                             <h3 className="text-center">FOLLOW ME</h3>
                             <div className="d-flex fs-3 mt-4 justify-content-center bg-white w-25 mx-auto text-center">
                                 <a target="_blank" className={`${style.github}`} href="https://github.com/ahmedhassan222">
-                                    <i class="fa-brands fa-github  me-3"></i>
+                                    <i className="fa-brands fa-github  me-3"></i>
                                 </a>
                                 <a target="_blank" className={`${style.linkin}`} href="https://www.linkedin.com/in/ahmed-hassan-27a371245/">
-                                    <i class="fa-brands fa-linkedin"></i>
+                                    <i className="fa-brands fa-linkedin"></i>
                                 </a>
 
                             </div>
@@ -59,7 +59,7 @@ export default function Footer() {
 
                 </div>
             </div>
-            <div class="text-center  p-3  " >
+            <div className="text-center  p-3  " >
 
                 <p >© 2024 Copyright</p>
             </div>
