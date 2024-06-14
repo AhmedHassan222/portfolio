@@ -6,7 +6,7 @@ import $ from 'jquery';
 import { useContext } from "react";
 import { Darkmode } from "../../Contexts/Darkmode";
 export default function Contact() {
-    let {darkMode} = useContext(Darkmode)
+    let { darkMode } = useContext(Darkmode)
     const [character, setCharacter] = useState(500)
     const [value, setValue] = useState('')
     const [buttonPress, setButtonPress] = useState('')
@@ -54,10 +54,10 @@ export default function Contact() {
             <title>Contact Me - A.</title>
         </Helmet>
 
-        <div  style={darkMode == false ? { backgroundColor: 'white', color: 'black' } : { backgroundColor: 'black', color: 'white' }}>
+        <div style={darkMode == false ? { backgroundColor: 'white', color: 'black' } : { backgroundColor: 'black', color: 'white' }}>
             <div className="container  pt-5 ">
-                <div className={`position-relative text-center ${darkMode ? 'py-5' :''}`}>
-                    {darkMode== false ? <h3 className={`${style.bigTitle}`}>CONTACT</h3> :""}
+                <div className={`position-relative text-center ${darkMode ? 'py-5' : ''}`}>
+                    {darkMode == false ? <h3 className={`${style.bigTitle}`}>CONTACT</h3> : ""}
                     <p className={`position-absolute ${style.positonStyle} ${style.smallTitle}`}>CONTACT</p>
                 </div>
             </div>
@@ -81,8 +81,9 @@ export default function Contact() {
                         <textarea onChange={review} onContextMenu={noneContext} onKeyDownCapture={knowLetter} rows={10} value={value} placeholder="Message*"></textarea>
                     </div>
                     <p className={`text-end ${style.character} `}>{character} character</p>
-                    <button type="submit" className={`py-3 btn btn-danger  text-white `}>Send Message</button>
-                </form>
+                    <div className={`position-relative ${style.linkStyle} my-5`}>
+                        <button type="submit" className={`py-3 btn btn-danger  text-white ${style.mainButton}`}>Send Message</button>
+                    </div>                </form>
             </div>
         </div>
 

@@ -25,6 +25,10 @@ export default function Nav() {
 
         }
     }
+    function menuClick(state) {
+        setDarkMode(state)
+        setIsOpen(false)
+    }
     
     function goTo() {
         setIsOpen(false)
@@ -41,8 +45,8 @@ export default function Nav() {
                 <div className="container">
                     <Link to={'/'} className={`navbar-brand fs-1 h1 ${darkMode == true ? "bg-black text-white" : "bg-white text-black"}`}>A.</Link>
                     <div className={`d-flex  ${style.w10} align-items-center justify-content-around`}>
-                        <div className={` fs-5  `}>
-                            {darkMode ? <i onClick={() => setDarkMode(false)} className="fa-solid bg-black fa-sun border-white border border-1 rounded-circle p-2"></i> : <i onClick={() => setDarkMode(true)} className="fa-solid fa-moon border-black bg-white border border-1 rounded-circle p-2"></i>}
+                        <div className={` fs-6 nav-link ${style.linkStyle} `}>
+                            {darkMode ? <i onClick={() => menuClick(false)}  className="fa-solid bg-black fa-sun border-white border border-1 rounded-circle p-2"></i> : <i onClick={() => menuClick(true)} className="fa-solid fa-moon border-black bg-white border border-1 rounded-circle p-2"></i>}
                         </div>
 
                         <div onClick={toggleMenu}>

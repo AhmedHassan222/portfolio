@@ -88,13 +88,14 @@ export default function About() {
                 </div>
 
 
-                <Link target="_blanck" className={`text-white nav-link ${style.linkStyle}`} to={'https://drive.google.com/file/d/1vQnaPp4quzNzoK3vmiCGOwfMbWBAckSB/view?usp=sharing'} >
-                    <button className={`py-3 btn btn-danger   text-white mt-4`}>Review Resume</button>
+                <Link target="_blanck" className={`text-white nav-link ${style.linkStyle} position-relative my-4`} to={'https://drive.google.com/file/d/1vQnaPp4quzNzoK3vmiCGOwfMbWBAckSB/view?usp=sharing'} >
+                    <button className={`py-3 btn btn-danger   text-white mt-4 ${style.mainButton}`}>Review Resume</button>
 
                 </Link>
 
             </div>
         </div>
+
 
 
     </>

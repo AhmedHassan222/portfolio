@@ -14,192 +14,55 @@ import sakan from "../../assets/sakan.png"
 import OMN from "../../assets/OMN.png"
 import Architect from "../../assets/Landingpage.png"
 import { Darkmode } from '../../Contexts/Darkmode'
+import { Link } from 'react-router-dom'
 export default function Project() {
-    let { darkMode } = useContext(Darkmode)
-    useEffect(() => {
-        window.scroll(0, 0)
-    }, [])
+    const { darkMode } = useContext(Darkmode)
+    const projects = [{ img: eMarket, link: `https://github.com/AhmedHassan222/Ecommerece-React-App`, demo: `https://AhmedHassan222.github.io/Ecommerece-React-App`, mode: "react" },
+    { img: reactMovieAppImage, link: `https://github.com/AhmedHassan222/noxe/tree/master`, demo: `https://ahmedhassan222.github.io/reactJS-movie-app/`, mode: "react" },
+    { img: sakan, link: `https://github.com/AhmedHassan222/Sakan`, demo: `https://ahmedhassan222.github.io/Sakan`, mode: "react" },
+    { img: ApAr, link: `https://github.com/AhmedHassan222/AProfile`, demo: `https://AhmedHassan222.github.io/AProfile`, mode: "landingPage" },
+    { img: AProfile, link: `https://github.com/AhmedHassan222/Portfolio`, demo: `https://AhmedHassan222.github.io/Portfolio`, mode: "react" },
+    { img: educavo, link: `https://github.com/AhmedHassan222/educavo`, demo: `https://AhmedHassan222.github.io/educavo`, mode: "landingPage" },
+    { img: OMN, link: `https://github.com/AhmedHassan222/OMN`, demo: `https://AhmedHassan222.github.io/OMN`, mode: "landingPage" },
+    { img: Architect, link: `https://github.com/AhmedHassan222/Architect`, demo: `https://AhmedHassan222.github.io/Architect`, mode: "landingPage" },
+    { img: backery, link: `https://github.com/AhmedHassan222/Backery`, demo: `https://AhmedHassan222.github.io/Backery`, mode: "landingPage" },
+    { img: fokir, link: `https://github.com/AhmedHassan222/fokir`, demo: `https://AhmedHassan222.github.io/fokir`, mode: "landingPage" },
+    { img: simone, link: `https://github.com/AhmedHassan222/simonee`, demo: `https://AhmedHassan222.github.io/simonee`, mode: "landingPage" },
+    { img: noxe, link: `https://github.com/AhmedHassan222/reactJS-movie-app`, demo: `https://ahmedhassan222.github.io/noxe`, mode: "angular" }
+    ]
+    const modes = ['all', 'react', 'angular', 'landingPage']
     const [mode, setMode] = useState('all')
+    useEffect(() => window.scroll(0, 0), [])
     return <>
-        <Helmet>
-            <title>My Projects - A.</title>
-        </Helmet>
-        <div style={darkMode == false ? { backgroundColor: 'white', color: 'black' } : { backgroundColor: 'black', color: 'white' }} className={`${style.projects}`}>
+        <Helmet><title>My Projects - A.</title></Helmet>
+        <div style={darkMode === false ? { backgroundColor: 'white', color: 'black' } : { backgroundColor: 'black', color: 'white' }} className={`${style.projects}`}>
             <div className="container  pt-5 text-center">
                 <div className={`position-relative ${darkMode ? "py-4" : ""}`}>
-                    {darkMode == false ? <h3 className={`${style.bigTitle}`}>PROJECTS</h3> : ""}
+                    {darkMode === false ? <h3 className={`${style.bigTitle}`}>PROJECTS</h3> : ""}
                     <p className={`position-absolute ${style.positonStyle} ${style.smallTitle}`}>PROJECTS</p>
                 </div>
                 <ul className="nav justify-content-center mt-5 ">
-                    <li className="nav-item">
-                        <span style={darkMode == false ? { backgroundColor: 'white', color: 'black' } : { backgroundColor: 'black', color: 'white' }} onClick={() => { setMode('all') }} className={`nav-link ${style.tabItem} ${mode == 'all' ? 'text-primary' : ""}`} >All Projects</span>
-                    </li>
-                    <li className="nav-item">
-                        <span style={darkMode == false ? { backgroundColor: 'white', color: 'black' } : { backgroundColor: 'black', color: 'white' }} onClick={() => { setMode('react') }} className={`nav-link ${style.tabItem} ${mode == 'react' ? 'text-primary' : ""}`} >ReactJS</span>
-                    </li>
-                    <li className="nav-item">
-                        <span style={darkMode == false ? { backgroundColor: 'white', color: 'black' } : { backgroundColor: 'black', color: 'white' }} onClick={() => { setMode('angular') }} className={`nav-link ${style.tabItem} ${mode == 'angular' ? 'text-primary' : ""}`} >AngularJS</span>
-                    </li>
-                    <li className="nav-item">
-                        <span style={darkMode == false ? { backgroundColor: 'white', color: 'black' } : { backgroundColor: 'black', color: 'white' }} onClick={() => { setMode("landingPage") }} className={`nav-link ${style.tabItem} ${mode == 'landingPage' ? 'text-primary' : ""}`} >Landing Pages</span>
-                    </li>
-                    
+                    {modes.map((item, index) =>
+                        <li key={index} className="nav-item">
+                            <span style={darkMode === false ? { backgroundColor: 'white', color: 'black' } : { backgroundColor: 'black', color: 'white' }} onClick={() => { setMode(item) }} className={`nav-link ${style.tabItem} ${mode === item ? 'text-primary' : ""}`} >{item}</span>
+                        </li>
+                    )}
                 </ul>
                 <div className="row py-5 g-4">
-                    {mode == 'all' || mode == 'landingPage' ?
-                        <div className={`col-sm-12 col-md-4 col-lg-4 position-relative ${style.box} `} >
-                            <img className={`w-100 ${style.imgStyle}`} src={OMN} alt="" />
+                    {projects.map((item, index) => mode === 'all' || mode === item.mode ?
+                        <div key={index} className={`col-sm-12 col-md-4 col-lg-4 position-relative ${style.box} `} >
+                            <img className={`w-100 ${style.imgStyle}`} src={item.img} alt="" />
                             <div className={` ${style.positionStyle} position-absolute d-flex justify-content-center align-items-center`}>
-                                <a target='_blank' href="https://github.com/AhmedHassan222/OMN">
+                                <Link target='_blank' to={item.link}>
                                     <i class={`fa-solid fa-code fs-5 mx-1  ${style.bgStyle} rounded-circle p-3 text-white`}></i>
-                                </a>
-                                <a target='_blank' href="https://ahmedhassan222.github.io/OMN/">
+                                </Link>
+                                <Link target='_blank' to={item.demo}>
                                     <i class={`fa-solid fa-display fs-5 mx-1  ${style.bgStyle} rounded-circle p-3 text-white`}></i>
-                                </a>
-                            </div>
-                        </div> : ""}
-                    {mode == 'all' || mode == 'landingPage' ?
-                        <div className={`col-sm-12 col-md-4 col-lg-4 position-relative ${style.box} `} >
-                            <img className={`w-100 ${style.imgStyle}`} src={Architect} alt="" />
-                            <div className={` ${style.positionStyle} position-absolute d-flex justify-content-center align-items-center`}>
-                                <a target='_blank' href="https://github.com/AhmedHassan222/Architect-Website">
-                                    <i class={`fa-solid fa-code fs-5 mx-1  ${style.bgStyle} rounded-circle p-3 text-white`}></i>
-                                </a>
-                                <a target='_blank' href="https://ahmedhassan222.github.io/Architect-Website/">
-                                    <i class={`fa-solid fa-display fs-5 mx-1  ${style.bgStyle} rounded-circle p-3 text-white`}></i>
-                                </a>
-                            </div>
-                        </div> : ""}
-                    {mode == 'all' || mode == 'react' ?
-                        <div className={`col-sm-12 col-md-4 col-lg-4 position-relative ${style.box} `} >
-                            <img className={`w-100 ${style.imgStyle}`} src={reactMovieAppImage} alt="" />
-                            <div className={` ${style.positionStyle} position-absolute d-flex justify-content-center align-items-center`}>
-                                <a target='_blank' href="https://github.com/AhmedHassan222/reactJS-movie-app">
-                                    <i class={`fa-solid fa-code fs-5 mx-1  ${style.bgStyle} rounded-circle p-3 text-white`}></i>
-                                </a>
-                                <a target='_blank' href="https://ahmedhassan222.github.io/reactJS-movie-app/">
-                                    <i class={`fa-solid fa-display fs-5 mx-1  ${style.bgStyle} rounded-circle p-3 text-white`}></i>
-                                </a>
-                            </div>
-                        </div> : ""}
-
-                    {mode == 'all' || mode == 'landingPage' ?
-                        <div className={`col-sm-12 col-md-4 col-lg-4 ${style.box} `} >
-                            <div className="position-relative">
-                                <img className={`w-100 ${style.imgStyle}`} src={ApAr} alt="" />
-                                <div className={` ${style.positionStyle} position-absolute d-flex justify-content-center align-items-center`}>
-                                    <a target='_blank' href="https://github.com/AhmedHassan222/AP.AR-Books">
-                                        <i class={`fa-solid fa-code fs-5 mx-1  ${style.bgStyle} rounded-circle p-3 text-white`}></i>
-                                    </a>
-                                    <a target='_blank' href="https://ahmedhassan222.github.io/AP.AR-Books/">
-                                        <i class={`fa-solid fa-display fs-5 mx-1  ${style.bgStyle} rounded-circle p-3 text-white`}></i>
-                                    </a>
-                                </div>
-                            </div>
-
-                        </div> : ""}
-                    {mode == 'all' || mode == 'react' ?
-                        <div className={`col-sm-12 col-md-4 col-lg-4 position-relative ${style.box} `} >
-                            <img className={`w-100 ${style.imgStyle}`} src={eMarket} alt="" />
-                            <div className={` ${style.positionStyle} position-absolute d-flex justify-content-center align-items-center`}>
-                                <a target='_blank' href="https://github.com/AhmedHassan222/Ecommerece-React-App">
-                                    <i class={`fa-solid fa-code fs-5 mx-1  ${style.bgStyle} rounded-circle p-3 text-white`}></i>
-                                </a>
-                                <a target='_blank' href="https://ahmedhassan222.github.io/Ecommerece-React-App/">
-                                    <i class={`fa-solid fa-display fs-5 mx-1  ${style.bgStyle} rounded-circle p-3 text-white`}></i>
-                                </a>
-                            </div>
-                        </div> : ""}
-
-                    {mode == 'all' || mode == 'landingPage' ?
-                        <div className={`col-sm-12 col-md-4 col-lg-4 position-relative ${style.box}  `} >
-                            <img className={`w-100 ${style.imgStyle}`} src={educavo} alt="" />
-                            <div className={` ${style.positionStyle} position-absolute d-flex justify-content-center align-items-center`}>
-                                <a target='_blank' href="https://github.com/AhmedHassan222/Educavo">
-                                    <i class={`fa-solid fa-code fs-5 mx-1  ${style.bgStyle} rounded-circle p-3 text-white`}></i>
-                                </a>
-                                <a target='_blank' href="https://ahmedhassan222.github.io/Educavo/">
-                                    <i class={`fa-solid fa-display fs-5 mx-1  ${style.bgStyle} rounded-circle p-3 text-white`}></i>
-                                </a>
-                            </div>
-                        </div> : ""}
-                    {mode == 'all' || mode == 'landingPage' ?
-                        <div className={`col-sm-12 col-md-4 col-lg-4 position-relative ${style.box} `} >
-                            <img className={`w-100 ${style.imgStyle}`} src={simone} alt="" />
-                            <div className={` ${style.positionStyle} position-absolute d-flex justify-content-center align-items-center`}>
-                                <a target='_blank' href="https://github.com/AhmedHassan222/simonee">
-                                    <i class={`fa-solid fa-code fs-5 mx-1  ${style.bgStyle} rounded-circle p-3 text-white`}></i>
-                                </a>
-                                <a target='_blank' href="https://ahmedhassan222.github.io/simonee/">
-                                    <i class={`fa-solid fa-display fs-5 mx-1  ${style.bgStyle} rounded-circle p-3 text-white`}></i>
-                                </a>
-                            </div>
-                        </div> : ""}
-                    {mode == 'all' || mode == 'react' ? <div className={`col-sm-12 col-md-4 col-lg-4 ${style.box} `} >
-                        <div className="position-relative">
-                            <img className={`w-100 ${style.imgStyle}`} src={sakan} alt="" />
-                            <div className={` ${style.positionStyle} position-absolute d-flex justify-content-center align-items-center`}>
-                                <a target='_blank' href="https://github.com/AhmedHassan222/Sakan">
-                                    <i class={`fa-solid fa-code fs-5 mx-1  ${style.bgStyle} rounded-circle p-3 text-white`}></i>
-                                </a>
-                                <a target='_blank' href="https://ahmedhassan222.github.io/Sakan/">
-                                    <i class={`fa-solid fa-display fs-5 mx-1  ${style.bgStyle} rounded-circle p-3 text-white`}></i>
-                                </a>
+                                </Link>
                             </div>
                         </div>
-
-                    </div> : ""}
-
-                    {mode == 'all' || mode == 'landingPage' ?
-                        <div className={`col-sm-12 col-md-4 col-lg-4 position-relative ${style.box}  `} >
-                            <img className={`w-100 ${style.imgStyle}`} src={backery} alt="" />
-                            <div className={` ${style.positionStyle} position-absolute d-flex justify-content-center align-items-center`}>
-                                <a target='_blank' href="https://github.com/AhmedHassan222/Backery">
-                                    <i class={`fa-solid fa-code fs-5 mx-1  ${style.bgStyle} rounded-circle p-3 text-white`}></i>
-                                </a>
-                                <a target='_blank' href="https://ahmedhassan222.github.io/Backery/">
-                                    <i class={`fa-solid fa-display fs-5 mx-1  ${style.bgStyle} rounded-circle p-3 text-white`}></i>
-                                </a>
-                            </div>
-                        </div> : ""}
-                    {mode == 'all' || mode == 'react' ?
-                        <div className={`col-sm-12 col-md-4 col-lg-4 position-relative ${style.box}  `} >
-                            <img className={`w-100 ${style.imgStyle}`} src={AProfile} alt="" />
-                            <div className={` ${style.positionStyle} position-absolute d-flex justify-content-center align-items-center`}>
-                                <a target='_blank' href="https://github.com/AhmedHassan222/myProfile/tree/master">
-                                    <i class={`fa-solid fa-code fs-5 mx-1  ${style.bgStyle} rounded-circle p-3 text-white`}></i>
-                                </a>
-                                <a target='_blank' href="https://ahmedhassan222.github.io/myProfile/">
-                                    <i class={`fa-solid fa-display fs-5 mx-1  ${style.bgStyle} rounded-circle p-3 text-white`}></i>
-                                </a>
-                            </div>
-                        </div> : ""}
-                    {mode == 'all' || mode == 'landingPage' ?
-                        <div className={`col-sm-12 col-md-4 col-lg-4 position-relative ${style.box} `} >
-                            <img className={`w-100 ${style.imgStyle}`} src={fokir} alt="" />
-                            <div className={` ${style.positionStyle} position-absolute d-flex justify-content-center align-items-center`}>
-                                <a target='_blank' href="https://github.com/AhmedHassan222/Fokir">
-                                    <i class={`fa-solid fa-code fs-5 mx-1  ${style.bgStyle} rounded-circle p-3 text-white`}></i>
-                                </a>
-                                <a target='_blank' href="https://ahmedhassan222.github.io/fokir/">
-                                    <i class={`fa-solid fa-display fs-5 mx-1  ${style.bgStyle} rounded-circle p-3 text-white`}></i>
-                                </a>
-                            </div>
-                        </div> : ""}
-
-                    {mode == 'all' || mode == 'angular' ?
-                        <div className={`col-sm-12 col-md-4 col-lg-4 position-relative ${style.box}  `} >
-                            <img className={`w-100 ${style.imgStyle}`} src={noxe} alt="" />
-                            <div className={` ${style.positionStyle} position-absolute d-flex justify-content-center align-items-center`}>
-                                <a target='_blank' href="https://github.com/AhmedHassan222/noxe/tree/master">
-                                    <i class={`fa-solid fa-code fs-5 mx-1  ${style.bgStyle} rounded-circle p-3 text-white`}></i>
-                                </a>
-                                <a target='_blank' href="https://ahmedhassan222.github.io/noxe/">
-                                    <i class={`fa-solid fa-display fs-5 mx-1  ${style.bgStyle} rounded-circle p-3 text-white`}></i>
-                                </a>
-                            </div>
-                        </div> : ""}
-
+                        : ""
+                    )}
                 </div>
             </div>
         </div>

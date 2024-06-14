@@ -71,3 +71,51 @@
 
 
 }
+
+
+.linkStyle {
+    min-height: 60px;
+    border-radius: 5px;
+    background-color: #8b222d;
+}
+
+.mainButton {
+    min-height: 60px;
+    left: -3px;
+    bottom: -7px;
+    position: absolute;
+}
+
+@media screen and (min-width:0px) and (max-width:576px) {
+    .linkStyle {
+        width: 135px;
+    }
+
+    .mainButton {
+        width: 130px;
+    }
+
+}
+
+@media screen and (min-width:577px) and (max-width:991px) {
+    .linkStyle {
+        width: 145px;
+    }
+
+    .mainButton {
+        width: 140px;
+    }
+
+}
+
+@media screen and (min-width:992px)  {
+    .linkStyle {
+        width: 195px;
+    }
+
+    .mainButton {
+        width: 190px;
+    }
+}
+
+
