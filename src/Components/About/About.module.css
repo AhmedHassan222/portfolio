@@ -99,11 +99,11 @@
 
 @media screen and (min-width:577px) and (max-width:991px) {
     .linkStyle {
-        width: 145px;
+        width: 165px;
     }
 
     .mainButton {
-        width: 140px;
+        width: 160px;
     }
 
 }

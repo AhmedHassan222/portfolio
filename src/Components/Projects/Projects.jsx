@@ -15,6 +15,7 @@ import OMN from "../../assets/OMN.png"
 import Architect from "../../assets/Landingpage.png"
 import { Darkmode } from '../../Contexts/Darkmode'
 import { Link } from 'react-router-dom'
+import WOW  from 'wowjs';
 export default function Project() {
     const { darkMode } = useContext(Darkmode)
     const projects = [{ img: eMarket, link: `https://github.com/AhmedHassan222/Ecommerece-React-App`, demo: `https://AhmedHassan222.github.io/Ecommerece-React-App`, mode: "react" },
@@ -32,7 +33,13 @@ export default function Project() {
     ]
     const modes = ['all', 'react', 'angular', 'landingPage']
     const [mode, setMode] = useState('all')
-    useEffect(() => window.scroll(0, 0), [])
+    useEffect(() => {
+        window.scroll(0, 0);
+        new WOW.WOW({
+            live: false
+        }).init();
+    }, [])
+
     return <>
         <Helmet><title>My Projects - A.</title></Helmet>
         <div style={darkMode === false ? { backgroundColor: 'white', color: 'black' } : { backgroundColor: 'black', color: 'white' }} className={`${style.projects}`}>
@@ -50,7 +57,7 @@ export default function Project() {
                 </ul>
                 <div className="row py-5 g-4">
                     {projects.map((item, index) => mode === 'all' || mode === item.mode ?
-                        <div key={index} className={`col-sm-12 col-md-4 col-lg-4 position-relative ${style.box} `} >
+                        <div key={index} className={`col-sm-12 col-md-6 col-lg-6 position-relative ${index % 2 === 0 ? 'wow bounceInLeft' :'wow bounceInRight'} ${style.box} `} >
                             <img className={`w-100 ${style.imgStyle}`} src={item.img} alt="" />
                             <div className={` ${style.positionStyle} position-absolute d-flex justify-content-center align-items-center`}>
                                 <Link target='_blank' to={item.link}>

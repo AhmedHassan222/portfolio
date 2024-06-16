@@ -1,28 +1,26 @@
-
 body {
   margin: 0;
   font-family: 'Martian Mono', monospace;
   overflow-x: hidden;
 
 }
-.positionStyle 
-{
+
+.positionStyle {
   right: 0%;
   top: 15%;
   z-index: 77777777777777777777777777777777;
 }
-.positionStyle:hover
-{
+
+.positionStyle:hover {
   cursor: pointer;
 }
 
 
-body::-webkit-scrollbar 
-{
+body::-webkit-scrollbar {
   background-color: transparent;
 }
-body::-webkit-scrollbar-thumb
-{
+
+body::-webkit-scrollbar-thumb {
   background-color: #dc3545;
 }
 
@@ -48,34 +46,44 @@ body::-webkit-scrollbar {
 
 @media screen and (min-width:0px) and (max-width:576px) {
   .linkStyle {
-      width: 125px;
+    width: 125px;
   }
 
   .mainButton {
-      width: 120px;
+    width: 120px;
   }
 
 }
 
 @media screen and (min-width:577px) and (max-width:991px) {
   .linkStyle {
-      width: 135px;
+    width: 135px;
   }
 
   .mainButton {
-      width: 130px;
+    width: 130px;
   }
 
 }
 
-@media screen and (min-width:992px)  {
+@media screen and (min-width:992px) {
   .linkStyle {
-      width: 145px;
+    width: 145px;
   }
 
   .mainButton {
-      width: 140px;
+    width: 140px;
   }
 }
 
 
+
+::selection {
+  background: #dc3545;
+  color: white;
+}
+
+::-moz-selection {
+  background: #dc3545;
+  color: white;
+}

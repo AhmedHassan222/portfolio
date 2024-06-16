@@ -12,13 +12,12 @@ export default function Header() {
         new WOW.WOW({
             live: false
         }).init();
-
     }, [])
     return <>
 
 
 
-        <header style={darkMode == false ? { backgroundColor: 'whitesmoke', color: 'black' } : { backgroundColor: 'black', color: 'white' }} className={`w-100 d-flex justify-content-center align-items-center mt-5 pt-5`}>
+        <header style={darkMode === false ? { backgroundColor: 'whitesmoke', color: 'black' } : { backgroundColor: 'black', color: 'white' }} className={`w-100 d-flex justify-content-center align-items-center  pt-5`}>
             <div className="container">
                 <div className={`row ${style.content}`}>
                     <div className={`col-sm-12 col-md-6 col-lg-6 wow bounceInRight ${style.right}`}>
@@ -46,7 +45,7 @@ export default function Header() {
                                 <span className={`mt-3 wow bounceInLeft`}></span>
                             </Typed>
                         </h3>
-                        <Link className={`text-white nav-link ${style.linkStyle}  position-relative my-4`} to={'contact'} >
+                        <Link className={`text-white nav-link wow bounceInLeft ${style.linkStyle}  position-relative my-4`} to={'contact'} >
                             <button className={`py-3 btn btn-danger  wow bounceInLeft text-white  ${style.mainButton}`}> Contact Me</button>
 
                         </Link>
