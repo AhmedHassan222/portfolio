@@ -5,7 +5,7 @@ import backery from "../../assets/Backery.png"
 import fokir from "../../assets/Fokir.png"
 import simone from "../../assets/simone.png"
 import AProfile from "../../assets/A..png"
-import { Helmet } from 'react-helmet'
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import educavo from '../../assets/educavo.png'
 import eMarket from "../../assets/eMarket.png"
 import ApAr from "../../assets/Annotation 2023-11-03 221617.png"
@@ -15,7 +15,7 @@ import OMN from "../../assets/OMN.png"
 import Architect from "../../assets/Landingpage.png"
 import { Darkmode } from '../../Contexts/Darkmode'
 import { Link } from 'react-router-dom'
-import WOW  from 'wowjs';
+import WOW from 'wowjs';
 export default function Project() {
     const { darkMode } = useContext(Darkmode)
     const projects = [{ img: eMarket, link: `https://github.com/AhmedHassan222/Ecommerece-React-App`, demo: `https://AhmedHassan222.github.io/Ecommerece-React-App`, mode: "react" },
@@ -41,38 +41,43 @@ export default function Project() {
     }, [])
 
     return <>
-        <Helmet><title>My Projects - A.</title></Helmet>
-        <div style={darkMode === false ? { backgroundColor: 'white', color: 'black' } : { backgroundColor: 'black', color: 'white' }} className={`${style.projects}`}>
-            <div className="container  pt-5 text-center">
-                <div className={`position-relative ${darkMode ? "py-4" : ""}`}>
-                    {darkMode === false ? <h3 className={`${style.bigTitle}`}>PROJECTS</h3> : ""}
-                    <p className={`position-absolute ${style.positonStyle} ${style.smallTitle}`}>PROJECTS</p>
-                </div>
-                <ul className="nav justify-content-center mt-5 ">
-                    {modes.map((item, index) =>
-                        <li key={index} className="nav-item">
-                            <span style={darkMode === false ? { backgroundColor: 'white', color: 'black' } : { backgroundColor: 'black', color: 'white' }} onClick={() => { setMode(item) }} className={`nav-link ${style.tabItem} ${mode === item ? 'text-primary' : ""}`} >{item}</span>
-                        </li>
-                    )}
-                </ul>
-                <div className="row py-5 g-4">
-                    {projects.map((item, index) => mode === 'all' || mode === item.mode ?
-                        <div key={index} className={`col-sm-12 col-md-6 col-lg-6 position-relative ${index % 2 === 0 ? 'wow bounceInLeft' :'wow bounceInRight'} ${style.box} `} >
-                            <img className={`w-100 ${style.imgStyle}`} src={item.img} alt="" />
-                            <div className={` ${style.positionStyle} position-absolute d-flex justify-content-center align-items-center`}>
-                                <Link target='_blank' to={item.link}>
-                                    <i className={`fa-solid fa-code fs-5 mx-1  ${style.bgStyle} rounded-circle p-3 text-white`}></i>
-                                </Link>
-                                <Link target='_blank' to={item.demo}>
-                                    <i className={`fa-solid fa-display fs-5 mx-1  ${style.bgStyle} rounded-circle p-3 text-white`}></i>
-                                </Link>
-                            </div>
+        <HelmetProvider>
+            <div>
+                <Helmet>
+                    <title>My Projects - A.</title>                </Helmet>
+                <div style={darkMode === false ? { backgroundColor: 'white', color: 'black' } : { backgroundColor: 'black', color: 'white' }} className={`${style.projects}`}>
+                    <div className="container  pt-5 text-center">
+                        <div className={`position-relative ${darkMode ? "py-4" : ""}`}>
+                            {darkMode === false ? <h3 className={`${style.bigTitle}`}>PROJECTS</h3> : ""}
+                            <p className={`position-absolute ${style.positonStyle} ${style.smallTitle}`}>PROJECTS</p>
                         </div>
-                        : ""
-                    )}
-                </div>
-            </div>
-        </div>
+                        <ul className="nav justify-content-center mt-5 ">
+                            {modes.map((item, index) =>
+                                <li key={index} className="nav-item">
+                                    <span style={darkMode === false ? { backgroundColor: 'white', color: 'black' } : { backgroundColor: 'black', color: 'white' }} onClick={() => { setMode(item) }} className={`nav-link ${style.tabItem} ${mode === item ? 'text-primary' : ""}`} >{item}</span>
+                                </li>
+                            )}
+                        </ul>
+                        <div className="row py-5 g-4">
+                            {projects.map((item, index) => mode === 'all' || mode === item.mode ?
+                                <div key={index} className={`col-sm-12 col-md-4 col-lg-4 position-relative wow bounceInUp ${style.box} `} >
+                                    <img className={`w-100 ${style.imgStyle}`} src={item.img} alt="" />
+                                    <div className={` ${style.positionStyle} position-absolute d-flex justify-content-center align-items-center`}>
+                                        <Link target='_blank' to={item.link}>
+                                            <i className={`fa-solid fa-code fs-5 mx-1  ${style.bgStyle} rounded-circle p-3 text-white`}></i>
+                                        </Link>
+                                        <Link target='_blank' to={item.demo}>
+                                            <i className={`fa-solid fa-display fs-5 mx-1  ${style.bgStyle} rounded-circle p-3 text-white`}></i>
+                                        </Link>
+                                    </div>
+                                </div>
+                                : ""
+                            )}
+                        </div>
+                    </div>
+                </div>            </div>
+        </HelmetProvider>
+
     </>
 }
 

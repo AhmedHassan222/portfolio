@@ -87,3 +87,8 @@ body::-webkit-scrollbar {
   background: #dc3545;
   color: white;
 }
+
+input , textarea
+{
+  border-bottom:2px solid #dc3545 !important;
+}

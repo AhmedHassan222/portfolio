@@ -2,7 +2,7 @@
 import About from './../About/About';
 import Project from '../Projects/Projects';
 import Contact from './../Contact/Contact';
-import { Helmet } from 'react-helmet';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Header from '../Header/Header';
 import { useEffect } from 'react';
 export default function Home() {
@@ -12,12 +12,17 @@ export default function Home() {
     }, [])
 
     return <>
-        <Header />
-        <About />
-        <Project />
-        <Contact />
-        <Helmet>
-            <title>Home Page - A.</title>
-        </Helmet>
+        <HelmetProvider>
+            <div>
+                <Header />
+                <About />
+                <Project />
+                <Contact />
+                <Helmet>
+                    <title>Home Page - A.</title>
+                </Helmet>
+            </div>
+        </HelmetProvider>
+
     </>
 }

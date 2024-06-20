@@ -10,26 +10,22 @@ export default function Nav() {
     function toggleMenu() {
 
         if (isOpen === false) {
-
             setIsOpen(true)
             document.querySelector('aside').classList.replace('d-none', 'd-block')
             document.querySelector('body').classList.remove('overflow-auto')
             document.querySelector('body').classList.add('overflow-hidden')
-
         } else {
             document.querySelector('body').classList.remove('overflow-hidden')
             document.querySelector('body').classList.add('overflow-auto')
-
             setIsOpen(false)
             document.querySelector('aside').classList.replace('d-block', 'd-none')
-
         }
     }
     function menuClick(state) {
         setDarkMode(state)
         setIsOpen(false)
     }
-    
+
     function goTo() {
         setIsOpen(false)
         document.querySelector('aside').classList.replace('d-block', 'd-none')
@@ -45,8 +41,9 @@ export default function Nav() {
                 <div className="container">
                     <Link to={'/'} className={`navbar-brand fs-1 h1 ${darkMode === true ? "bg-black text-white" : "bg-white text-black"}`}>A.</Link>
                     <div className={`d-flex  ${style.w10} align-items-center justify-content-around`}>
+
                         <div className={` fs-6 nav-link ${style.linkStyle} `}>
-                            {darkMode ? <i onClick={() => menuClick(false)}  className="fa-solid bg-black fa-sun border-white border border-1 rounded-circle p-2"></i> : <i onClick={() => menuClick(true)} className="fa-solid fa-moon border-black bg-white border border-1 rounded-circle p-2"></i>}
+                            {darkMode ? <i onClick={() => menuClick(false)} className="fa-solid bg-black fa-sun border-white border border-1 rounded-circle p-2"></i> : <i onClick={() => menuClick(true)} className="fa-solid fa-moon border-black bg-white border border-1 rounded-circle p-2"></i>}
                         </div>
 
                         <div onClick={toggleMenu}>
@@ -54,6 +51,7 @@ export default function Nav() {
                                 <i className={`fa-solid fa-bars fs-3  `}></i>
                             </div>}
                         </div>
+
                     </div>
                 </div>
 
@@ -64,8 +62,8 @@ export default function Nav() {
                     <Link onClick={goTo} className={`nav-link p-4 ${style.linkStyle} ${darkMode === true ? "bg-black text-white" : "bg-white text-black"}`} to="contact">CONTACT</Link>
                 </aside>
             </nav>
-            
-        </div>   
+
+        </div>
 
 
     </>
