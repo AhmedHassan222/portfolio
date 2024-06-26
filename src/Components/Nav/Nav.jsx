@@ -24,6 +24,8 @@ export default function Nav() {
     function menuClick(state) {
         setDarkMode(state)
         setIsOpen(false)
+        document.querySelector('body').classList.remove('overflow-hidden')
+        document.querySelector('body').classList.add('overflow-auto')
     }
 
     function goTo() {
