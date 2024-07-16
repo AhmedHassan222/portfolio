@@ -29,7 +29,7 @@ function App() {
     }
   ])
   return <>
-    {loading ? <div className='d-flex w-100 vh-100 d-flex justify-content-center align-items-md-center '>
+    {loading ? <div className='d-flex w-100 vh-100 d-flex justify-content-center align-items-center '>
       <div className="lds-ellipsis text-danger"><div></div><div></div><div></div><div></div></div>
     </div> : <>
       <DarkmodeProvide>

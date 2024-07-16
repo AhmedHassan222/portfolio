@@ -18,18 +18,19 @@ import { Link } from 'react-router-dom'
 import WOW from 'wowjs';
 export default function Project() {
     const { darkMode } = useContext(Darkmode)
-    const projects = [{ img: eMarket, link: `https://github.com/AhmedHassan222/Ecommerece-React-App`, demo: `https://AhmedHassan222.github.io/Ecommerece-React-App`, mode: "react" },
-    { img: reactMovieAppImage, link: `https://github.com/AhmedHassan222/noxe/tree/master`, demo: `https://ahmedhassan222.github.io/reactJS-movie-app/`, mode: "react" },
-    { img: sakan, link: `https://github.com/AhmedHassan222/Sakan`, demo: `https://ahmedhassan222.github.io/Sakan`, mode: "react" },
-    { img: ApAr, link: `https://github.com/AhmedHassan222/AProfile`, demo: `https://AhmedHassan222.github.io/AProfile`, mode: "landingPage" },
-    { img: AProfile, link: `https://github.com/AhmedHassan222/Portfolio`, demo: `https://AhmedHassan222.github.io/Portfolio`, mode: "react" },
-    { img: educavo, link: `https://github.com/AhmedHassan222/educavo`, demo: `https://AhmedHassan222.github.io/educavo`, mode: "landingPage" },
-    { img: OMN, link: `https://github.com/AhmedHassan222/OMN`, demo: `https://AhmedHassan222.github.io/OMN`, mode: "landingPage" },
-    { img: Architect, link: `https://github.com/AhmedHassan222/Architect`, demo: `https://AhmedHassan222.github.io/Architect`, mode: "landingPage" },
-    { img: backery, link: `https://github.com/AhmedHassan222/Backery`, demo: `https://AhmedHassan222.github.io/Backery`, mode: "landingPage" },
-    { img: fokir, link: `https://github.com/AhmedHassan222/fokir`, demo: `https://AhmedHassan222.github.io/fokir`, mode: "landingPage" },
-    { img: simone, link: `https://github.com/AhmedHassan222/simonee`, demo: `https://AhmedHassan222.github.io/simonee`, mode: "landingPage" },
-    { img: noxe, link: `https://github.com/AhmedHassan222/reactJS-movie-app`, demo: `https://ahmedhassan222.github.io/noxe`, mode: "angular" }
+    const projects = [
+        { img: eMarket, link: `https://github.com/AhmedHassan222/Ecommerece-React-App`, demo: `https://AhmedHassan222.github.io/Ecommerece-React-App`, mode: "react" },
+        { img: reactMovieAppImage, link: `https://github.com/AhmedHassan222/reactJS-movie-app`, demo: `https://ahmedhassan222.github.io/reactJS-movie-app/`, mode: "react" },
+        { img: sakan, link: `https://github.com/AhmedHassan222/Sakan`, demo: `https://ahmedhassan222.github.io/Sakan`, mode: "react" },
+        { img: ApAr, link: `https://github.com/AhmedHassan222/AP.AR-Books`, demo: `https://AhmedHassan222.github.io/AP.AR-Books`, mode: "landingPage" },
+        { img: AProfile, link: `https://github.com/AhmedHassan222/Portfolio`, demo: `https://ahmedhassan222.github.io/portfolio/`, mode: "react" },
+        { img: educavo, link: `https://github.com/AhmedHassan222/educavo`, demo: `https://ahmedhassan222.github.io/Educavo/`, mode: "landingPage" },
+        { img: OMN, link: `https://github.com/AhmedHassan222/OMN`, demo: `https://AhmedHassan222.github.io/OMN`, mode: "landingPage" },
+        { img: Architect, link: `https://github.com/AhmedHassan222/Architect-Website`, demo: `https://AhmedHassan222.github.io/Architect-Website`, mode: "landingPage" },
+        { img: backery, link: `https://github.com/AhmedHassan222/Backery`, demo: `https://AhmedHassan222.github.io/Backery`, mode: "landingPage" },
+        { img: fokir, link: `https://github.com/AhmedHassan222/fokir`, demo: `https://AhmedHassan222.github.io/fokir`, mode: "landingPage" },
+        { img: simone, link: `https://github.com/AhmedHassan222/simonee`, demo: `https://AhmedHassan222.github.io/simonee`, mode: "landingPage" },
+        { img: noxe, link: `https://github.com/AhmedHassan222/noxe/tree/master`, demo: `https://ahmedhassan222.github.io/noxe`, mode: "angular" }
     ]
     const modes = ['all', 'react', 'angular', 'landingPage']
     const [mode, setMode] = useState('all')
