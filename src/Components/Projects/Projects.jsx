@@ -61,7 +61,7 @@ export default function Project() {
                         </ul>
                         <div className="row py-5 g-4">
                             {projects.map((item, index) => mode === 'all' || mode === item.mode ?
-                                <div key={index} className={`col-sm-12 col-md-4 col-lg-4 position-relative wow bounceInUp ${style.box} `} >
+                                <div key={index} className={`col-sm-12 col-md-6 col-lg-6 position-relative wow bounceInUp ${style.box} `} >
                                     <img className={`w-100 ${style.imgStyle}`} src={item.img} alt="" />
                                     <div className={` ${style.positionStyle} position-absolute d-flex justify-content-center align-items-center`}>
                                         <Link target='_blank' to={item.link}>
