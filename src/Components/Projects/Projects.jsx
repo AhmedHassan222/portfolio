@@ -64,8 +64,8 @@ export default function Project() {
                                 <div key={index} className={`col-sm-12 col-md-12 col-lg-6 wow bounceInUp ${style.box} `} >
                                     <img className={`w-100 ${style.imgStyle}`} src={item.img} alt="" />
                                     <div className="d-flex">
-                                    <Link target='_blank' to={item.link} className="btn btn-danger rounded-0 w-100" > <i className='fa-solid fa-code'></i> SourceCode</Link>
-                                    <Link target='_blank' to={item.demo} className="btn btn-danger rounded-0 w-100"> <i className='fa-solid fa-display'></i> LiveDemo</Link>
+                                    <Link target='_blank' to={item.link} className="btn btn-danger rounded-0 w-100 small fs-6" > <i className='fa-solid fa-code'></i> SourceCode</Link>
+                                    <Link target='_blank' to={item.demo} className="btn btn-danger rounded-0 w-100 small fs-6"> <i className='fa-solid fa-display'></i> LiveDemo</Link>
                                     </div>
                                     
                                 </div>
