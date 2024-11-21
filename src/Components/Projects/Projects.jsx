@@ -15,10 +15,12 @@ import OMN from "../../assets/OMN.png"
 import Architect from "../../assets/Landingpage.png"
 import { Darkmode } from '../../Contexts/Darkmode'
 import { Link } from 'react-router-dom'
+import educationalPlatform from "../../assets/eductaional platform.png"
 import WOW from 'wowjs';
 export default function Project() {
     const { darkMode } = useContext(Darkmode)
     const projects = [
+        { img: educationalPlatform, link: `https://github.com/AhmedHassan222/Educational_Platform`, demo: `https://ahmedhassan222.github.io/Educational_Platform/` },
         { img: eMarket, link: `https://github.com/AhmedHassan222/Ecommerece-React-App`, demo: `https://AhmedHassan222.github.io/Ecommerece-React-App`, mode: "react" },
         { img: reactMovieAppImage, link: `https://github.com/AhmedHassan222/reactJS-movie-app`, demo: `https://ahmedhassan222.github.io/reactJS-movie-app/`, mode: "react" },
         { img: sakan, link: `https://github.com/AhmedHassan222/Sakan`, demo: `https://ahmedhassan222.github.io/Sakan`, mode: "react" },
@@ -63,11 +65,11 @@ export default function Project() {
                             {projects.map((item, index) => mode === 'all' || mode === item.mode ?
                                 <div key={index} className={`col-sm-12 col-md-12 col-lg-6 wow bounceInUp ${style.box} `} >
                                     <img className={`w-100 ${style.imgStyle}`} src={item.img} alt="" />
-                                    <div className="d-flex">
-                                    <Link target='_blank' to={item.link} className="btn btn-danger rounded-0 w-100 small fs-6" > <i className='fa-solid fa-code'></i> SourceCode</Link>
-                                    <Link target='_blank' to={item.demo} className="btn btn-danger rounded-0 w-100 small fs-6"> <i className='fa-solid fa-display'></i> LiveDemo</Link>
+                                    <div className="d-flex justify-content-center my-3">
+                                        <Link target='_blank' to={item.link} className="mx-2 small fs-6 nav-link text-black bg-light p-2" > <i className='fa-solid fa-code'></i> SourceCode</Link>
+                                        <Link target='_blank' to={item.demo} className="mx-2 small fs-6 nav-link text-black bg-light p-2"> <i className='fa-solid fa-display'></i> LiveDemo</Link>
                                     </div>
-                                    
+
                                 </div>
                                 : ""
                             )}
