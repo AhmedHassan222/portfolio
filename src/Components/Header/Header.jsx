@@ -1,6 +1,6 @@
 import Typed from 'react-typed';
 import style from "./Header.module.css"
-import profilePic from "../../assets/profilePic2.png"
+import profilePic from "../../assets/profilePic.jfif"
 import WOW from 'wowjs';
 import { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
